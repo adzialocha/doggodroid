@@ -5,18 +5,19 @@ use aquadoggo::{Configuration, Node};
 #[cfg(target_os = "android")]
 #[no_mangle]
 unsafe extern "C" fn Java_com_example_doggodroid_MainActivity_startDoggo() {
+    // @TODO: Replace this with `android_logger` directly
     ndk_glue::android_logger::init_once(
         ndk_glue::android_logger::Config::default().with_min_level(ndk_glue::log::Level::Debug),
     );
-    // ndk_glue::init(activity as _, saved_state as _, saved_state_size as _, main);
+
     thread::spawn(move || main());
 }
 
 #[tokio::main]
 pub async fn main() {
     let config = Configuration {
+        // @TODO: Persist database
         database_url: Some("sqlite::memory:".into()),
-        http_port: 2020,
         ..Default::default()
     };
 
