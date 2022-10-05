@@ -1,0 +1,29 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/assets/stylesheet.css">
+</head>
+<body>
+<p>Hello, I was loaded from inside the app!</p>
+<div id="response"></div>
+<script>
+    document.getElementById("response").innerText = "Make GraphQL request ..";
+
+    window.setInterval(() => {
+        window.fetch("http://localhost:2020/graphql", {
+            method: "POST",
+            body: JSON.stringify({
+                query: "{ all_schema_definition_v1 { meta { documentId }, fields { name description } } }",
+                variables: {},
+            })
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById("response").innerText = JSON.stringify(data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }, 2500);
+</script>
+</body>
+</html>
