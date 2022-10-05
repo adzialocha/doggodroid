@@ -1,6 +1,8 @@
 # p2panda node in Android app
 
-> :warn: This is an experimental setup to see if we can bring the p2panda `aquadoggo` node into an native Android app! And yes, it works! Give me some time to clean this up and write more documentation.
+<img src="https://raw.githubusercontent.com/adzialocha/doggodroid/main/screenshot.png" width="300" />
+
+> :warning: This is an experimental setup to see if we can bring the p2panda [`aquadoggo`](https://github.com/p2panda/aquadoggo) node into an native Android app! And yes, it works! Give me some time to clean this up and write more documentation.
 
 *Please note: This was tested with a smartphone with ARM64 architecture.*
 
